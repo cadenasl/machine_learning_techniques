@@ -1,6 +1,7 @@
 import os
 import requests
 import re
+import simpleTokenizer
 
 if not os.path.exists("the-verdict.txt"):
     url = (
@@ -51,3 +52,10 @@ for i, item in enumerate(vocab.items()):
     print(item)
     if i >= 50:
         break
+    
+vocab = simpleTokenizer.SimpleTokenizerV1(vocab)
+text = """"It's the last he painted, you know," 
+           Mrs. Gisburn said with pardonable pride."""
+ids = vocab.encode(text)
+print(ids)
+print(vocab.decode(ids))
