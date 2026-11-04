@@ -13,3 +13,10 @@ text = (
 integers = tokenizer.encode(text, allowed_special={"<|endoftext|>"})
 
 print(integers)
+
+
+with open("the-verdict.txt", "r", encoding="utf-8") as f:
+    raw_text = f.read()
+
+enc_text = tokenizer.encode(raw_text)
+print(len(enc_text))
